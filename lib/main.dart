@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pharma_chain_app/constants.dart';
 import 'package:pharma_chain_app/views/onboarding_screen.dart';
@@ -14,18 +15,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Pharma Supply Chain',
-      theme: ThemeData(
-        primaryColor: primaryGreen,
-        primaryIconTheme: IconThemeData(color: primaryIconColor),
-        inputDecorationTheme: InputDecorationTheme(
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(6),
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Pharma Supply Chain',
+          theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            fontFamily: 'Poppins',
+            textTheme: Theme.of(context).textTheme.apply(
+                bodyColor: primaryTextColor, displayColor: primaryTextColor),
+            appBarTheme: const AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: Colors.transparent,
+                  statusBarBrightness: Brightness.dark,
+                  statusBarIconBrightness: Brightness.dark),
+            ),
+            primaryColor: primaryGreen,
+            primaryIconTheme: IconThemeData(color: primaryIconColor),
+            inputDecorationTheme: InputDecorationTheme(
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6),
+              ),
+            ),
           ),
-        ),
-      ),
-      home: const OnboardingScreen(),
+          home: child,
+        );
+      },
+      child: const OnboardingScreen(),
     );
   }
 }
