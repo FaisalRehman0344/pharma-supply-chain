@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:is_first_run/is_first_run.dart';
 import 'package:pharma_chain_app/constants.dart';
-import 'package:pharma_chain_app/views/login_screen.dart';
+import 'package:pharma_chain_app/views/auth/login_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pharma_chain_app/widgets/custom_appbar.dart';
 import 'package:pharma_chain_app/widgets/scroll_glow_remover.dart';
 import 'package:pharma_chain_app/widgets/slide_tile.dart';
 
@@ -54,111 +54,120 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        appBar: AppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            elevation: 0),
-        body: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 500.24.h,
-                    child: PageView(
-                      scrollBehavior: GlowRemoverBehaviour(),
-                      controller: _pageController,
-                      onPageChanged: (index) {
-                        setState(() {
-                          currentIndex = index;
-                        });
-                      },
-                      children: <Widget>[
-                        SlideTile(
-                          imagePath: slides[0]['image'],
-                          title: slides[0]['title'],
-                          desc: slides[0]['description'],
-                        ),
-                        SlideTile(
-                          imagePath: slides[1]['image'],
-                          title: slides[1]['title'],
-                          desc: slides[1]['description'],
-                        ),
-                        SlideTile(
-                          imagePath: slides[2]['image'],
-                          title: slides[2]['title'],
-                          desc: slides[2]['description'],
-                        )
-                      ],
-                    ),
+    return Scaffold(
+      appBar: customAppbar(context),
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment.topCenter,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 500.24.h,
+                  child: PageView(
+                    scrollBehavior: GlowRemoverBehaviour(),
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      setState(() {
+                        currentIndex = index;
+                      });
+                    },
+                    children: <Widget>[
+                      SlideTile(
+                        imagePath: slides[0]['image'],
+                        title: slides[0]['title'],
+                        desc: slides[0]['description'],
+                      ),
+                      SlideTile(
+                        imagePath: slides[1]['image'],
+                        title: slides[1]['title'],
+                        desc: slides[1]['description'],
+                      ),
+                      SlideTile(
+                        imagePath: slides[2]['image'],
+                        title: slides[2]['title'],
+                        desc: slides[2]['description'],
+                      )
+                    ],
                   ),
-                  SizedBox(height: 80.h),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    for (int i = 0; i < 3; i++)
-                      i == currentIndex
-                          ? pageIndicator(true)
-                          : pageIndicator(false),
-                  ]),
-                ],
-              ),
+                ),
+                SizedBox(height: 80.h),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  for (int i = 0; i < 3; i++)
+                    i == currentIndex
+                        ? pageIndicator(true)
+                        : pageIndicator(false),
+                ]),
+              ],
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 42.h),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.off(const LoginScreen());
-                      },
-                      child: Container(
-                        width: 70.h,
-                        height: 70.h,
-                        decoration: BoxDecoration(
-                          color: lightGreen,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Skip",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20.sp,
-                            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 42.h),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.off(const LoginScreen());
+                    },
+                    child: Container(
+                      width: 70.h,
+                      height: 70.h,
+                      decoration: BoxDecoration(
+                        color: lightGreen,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Skip",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20.sp,
                           ),
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        if (currentIndex < 2) {
-                          setState(() {
-                            _pageController.nextPage(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.linear);
-                            currentIndex++;
-                          });
-                        } else {
-                          Get.off(const LoginScreen());
-                        }
-                      },
-                      child: Image.asset("assets/images/arrow_button.png",
-                          width: 71.w),
-                    ),
-                  ],
-                ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      if (currentIndex < 2) {
+                        setState(() {
+                          _pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.linear);
+                          currentIndex++;
+                        });
+                      } else {
+                        Get.off(const LoginScreen());
+                      }
+                    },
+                    child: Container(
+                        width: 70.h,
+                        height: 70.h,
+                        decoration: BoxDecoration(
+                          color: primaryGreen,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Center(
+                          child: RotatedBox(
+                            quarterTurns: 2,
+                            child: Image.asset(
+                                "assets/images/arrow_forward.png",
+                                color: Colors.white,
+                                width: 33.w),
+                          ),
+                        )),
+                  ),
+                ],
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }

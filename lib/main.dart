@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Pharma Supply Chain',
           theme: ThemeData(
+            primarySwatch: Colors.green,
             scaffoldBackgroundColor: Colors.white,
             fontFamily: 'Poppins',
             textTheme: Theme.of(context).textTheme.apply(
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
             primaryColor: primaryGreen,
             primaryIconTheme: IconThemeData(color: primaryIconColor),
             inputDecorationTheme: InputDecorationTheme(
+              focusColor: primaryGreen,
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
               ),
