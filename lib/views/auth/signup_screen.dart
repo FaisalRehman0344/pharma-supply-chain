@@ -60,7 +60,7 @@ class _SignupScreenState extends State<SignupScreen> {
           child: SingleChildScrollView(
             child: Container(
               margin: EdgeInsets.only(
-                  left: 28.w, right: 28.w, top: 75.h, bottom: 96.h),
+                  left: 28.w, right: 28.w, top: 45.h, bottom: 96.h),
               child: Form(
                 key: _formKey,
                 child: Column(
@@ -196,7 +196,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: customAuthButton("Sign Up", () => Get.to(const ConfirmPasswordScreen(fromSignup: true,))),
+                      child: customAuthButton(
+                          "Sign Up",
+                          () => Get.to(const ConfirmPasswordScreen(
+                                fromSignup: true,
+                              ))),
                     )
                   ],
                 ),

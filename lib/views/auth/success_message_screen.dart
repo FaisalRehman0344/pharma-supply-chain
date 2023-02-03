@@ -26,7 +26,7 @@ class _SuccessMessageScreenState extends State<SuccessMessageScreen> {
         child: SingleChildScrollView(
           child: Container(
             alignment: Alignment.center,
-            margin: EdgeInsets.only(left: 28.w, right: 28.w, top: 140.h),
+            margin: EdgeInsets.only(left: 28.w, right: 28.w, top: 120.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,

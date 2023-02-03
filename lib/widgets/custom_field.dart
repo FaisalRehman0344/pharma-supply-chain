@@ -8,7 +8,10 @@ SizedBox customInputField(
     required void Function(String, String) onChange,
     bool showPasswordValue = false,
     void Function(String)? showPassChangeFunction,
-    double? width,Widget? trailing,bool? readonly}) {
+    double? width,
+    Widget? trailing,
+    bool? readonly,
+    double? radius}) {
   return SizedBox(
     height: 52.h,
     width: width,
@@ -34,13 +37,13 @@ SizedBox customInputField(
                     : Icon(Icons.visibility, size: 15.w),
               )
             : trailing,
-        border: getInputBorder(borderColor),
-        focusedBorder: getInputBorder(primaryGreen),
-        errorBorder: getInputBorder(primaryGreen),
+        border: getInputBorder(borderColor, borderRadius: radius),
+        focusedBorder: getInputBorder(primaryGreen, borderRadius: radius),
+        errorBorder: getInputBorder(primaryGreen, borderRadius: radius),
       ),
       validator: ((value) {
         if (value == null || value.isEmpty) {
-          return "$hint can not be empty";
+          return "Field can not be empty";
         }
         return null;
       }),
@@ -48,8 +51,8 @@ SizedBox customInputField(
   );
 }
 
-OutlineInputBorder getInputBorder(Color color) {
+OutlineInputBorder getInputBorder(Color color, {double? borderRadius}) {
   return OutlineInputBorder(
       borderSide: BorderSide(color: color),
-      borderRadius: BorderRadius.circular(6.r));
+      borderRadius: BorderRadius.circular(borderRadius ?? 6.r));
 }

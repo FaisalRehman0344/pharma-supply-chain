@@ -25,7 +25,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         behavior: GlowRemoverBehaviour(),
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.only(left: 28.w, right: 28.w, top: 110.h),
+            margin: EdgeInsets.only(left: 28.w, right: 28.w, top: 90.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -46,7 +46,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   color: labelTextColor,
                 ),
                 SizedBox(height: 18.h),
-                customInputField(hint: "abc123@gmail.com", onChange: (name,val) {}),
+                customInputField(
+                    hint: "abc123@gmail.com", onChange: (name, val) {}),
                 SizedBox(height: 52.h),
                 Align(
                   alignment: Alignment.center,

@@ -9,6 +9,7 @@ Text customText(String text,
   return Text(
     text,
     style: TextStyle(
+        fontFamily: "Poppins",
         fontSize: fontSize,
         fontWeight: fontWeight ?? FontWeight.w500,
         color: color ?? Colors.black,

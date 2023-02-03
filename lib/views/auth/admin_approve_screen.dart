@@ -26,7 +26,7 @@ class _AdminApproveScreenState extends State<AdminApproveScreen> {
         behavior: GlowRemoverBehaviour(),
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.only(left: 28.w, right: 28.w, top: 86.h),
+            margin: EdgeInsets.only(left: 28.w, right: 28.w, top: 66.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

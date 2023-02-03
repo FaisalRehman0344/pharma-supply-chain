@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 Color middleGreen = const Color(0xff36C55E);
@@ -10,3 +12,10 @@ Color primaryTextColor = const Color(0xff323232);
 Color labelTextColor = const Color(0xff020202);
 Color borderColor = const Color(0xffB1B1B1);
 Color darkTextColor = const Color(0xff141414);
+Color appbarTitleColor = const Color(0xff081C34);
+Color mainTaglineColor = const Color(0xff1C3146);
+Color shadowColor = const Color(0xff3d8e54);
+
+Color getRandomColor() {
+  return Color(Random().nextInt(0xffffffff));
+}

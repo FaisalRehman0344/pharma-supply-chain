@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pharma_chain_app/constants.dart';
 import 'package:pharma_chain_app/views/auth/forgot_password_screen.dart';
 import 'package:pharma_chain_app/views/auth/signup_screen.dart';
+import 'package:pharma_chain_app/views/home_screen.dart';
 import 'package:pharma_chain_app/widgets/custom_auth_button.dart';
 import 'package:pharma_chain_app/widgets/custom_field.dart';
 import 'package:pharma_chain_app/widgets/custom_text.dart';
@@ -53,7 +54,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     customText("Private Key",
                         fontSize: 15.sp, color: labelTextColor),
                     SizedBox(height: 7.h),
-                    customInputField(hint: "5465465", onChange: (name, val) {}),
+                    customInputField(
+                        hint: "5465465", onChange: (name, val) {}),
                     SizedBox(height: 20.h),
                     customText("Password",
                         fontSize: 15.sp, color: labelTextColor),
@@ -91,7 +93,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    customAuthButton("Login", () {}),
+                    customAuthButton(
+                        "Login", () => Get.to(const HomeScreen())),
                     InkWell(
                       onTap: (() => Get.to(const ForgotPasswordScreen())),
                       child: Container(
