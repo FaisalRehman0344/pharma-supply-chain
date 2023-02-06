@@ -15,6 +15,8 @@ Color darkTextColor = const Color(0xff141414);
 Color appbarTitleColor = const Color(0xff081C34);
 Color mainTaglineColor = const Color(0xff1C3146);
 Color shadowColor = const Color(0xff3d8e54);
+Color subtitleTextColor = const Color(0xff465C67);
+Color starOffColor = const Color(0xffCFD8DD);
 
 Color getRandomColor() {
   return Color(Random().nextInt(0xffffffff));

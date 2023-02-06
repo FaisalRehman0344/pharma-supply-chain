@@ -5,6 +5,7 @@ import 'package:pharma_chain_app/constants.dart';
 import 'package:pharma_chain_app/views/auth/forgot_password_screen.dart';
 import 'package:pharma_chain_app/views/auth/signup_screen.dart';
 import 'package:pharma_chain_app/views/home_screen.dart';
+import 'package:pharma_chain_app/views/main_screen.dart';
 import 'package:pharma_chain_app/widgets/custom_auth_button.dart';
 import 'package:pharma_chain_app/widgets/custom_field.dart';
 import 'package:pharma_chain_app/widgets/custom_text.dart';
@@ -94,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     customAuthButton(
-                        "Login", () => Get.to(const HomeScreen())),
+                        "Login", () => Get.to(const MainScreen())),
                     InkWell(
                       onTap: (() => Get.to(const ForgotPasswordScreen())),
                       child: Container(
